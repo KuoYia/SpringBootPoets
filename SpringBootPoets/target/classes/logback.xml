@@ -1,0 +1,26 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 设置根日志级别为INFO，并附加控制台输出 -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <!-- 配置MyBatis的日志记录器 -->
+    <logger name="org.apache.ibatis" level="DEBUG"/>
+    <!-- 配置JDBC的日志记录器 -->
+    <logger name="java.sql.Connection" level="DEBUG"/>
+    <logger name="java.sql.Statement" level="DEBUG"/>
+    <logger name="java.sql.PreparedStatement" level="DEBUG"/>
+
+    <!-- 更具体地，您可以限制日志记录到只包含您的映射器的包名 -->
+     <logger name="clover.dao" level="DEBUG"/>
+
+    <!-- 如果您想减少非MyBatis日志的数量，您可以将Spring框架和其他组件的级别设置为WARN或ERROR -->
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="com.alibaba.druid" level="WARN"/>
+</configuration>
