@@ -25,7 +25,7 @@
 }
 
     $.ajax({
-    url: '/api/poets/add',
+    url: 'http://localhost:9001/ssm/api/poets',
     type: 'POST',
     contentType: 'application/json',
     data: JSON.stringify(poetData),
@@ -39,6 +39,31 @@
 }
 
     function updatePoet() {
+        // 构建要发送的数据对象
+        var poetData = {
+            id: $('#updateId').val(),
+            name: $('#updateName').val(),
+            dynasty: $('#updateDynasty').val(),
+            biography: $('#updateBiography').val(),
+            birthDate: $('#updateBirthDate').val() ? formatDate(new Date($('#updateBirthDate').val())) : '', // 如果生年不为空，则格式化生年
+            deathDate: $('#updateDeathDate').val() ? formatDate(new Date($('#updateDeathDate').val())) : ''  // 如果卒年不为空，则格式化卒年
+        };
+
+        // 发送 AJAX 请求
+        $.ajax({
+            url: 'http://localhost:9001/ssm/api/poets',
+            type: 'PUT', // 请求类型保持不变
+            contentType: 'application/json',
+            data: JSON.stringify(poetData),
+            success: function(response) {
+                alert('诗人更新成功');
+            },
+            error: function(error) {
+                alert('更新诗人时发生错误: ' + error.responseText);
+            }
+        });
+    }
+/*    function updatePoet() {
     // 构建要发送的数据对象
     var poetData = {
     id: $('#updateId').val(),
@@ -51,7 +76,7 @@
 
     // 发送 AJAX 请求
     $.ajax({
-    url: '/api/poets/' + $('#updateId').val(), // 修改URL
+    url: 'http://localhost:9001/ssm/api/poets/' + $('#updateId').val(), // 修改URL
     type: 'PUT', // 修改请求类型
     contentType: 'application/json',
     data: JSON.stringify(poetData),
@@ -62,12 +87,12 @@
     alert('更新诗人时发生错误: ' + error.responseText);
 }
 });
-}
+}*/
 
     function deletePoet() {
         var poetId = $('#deleteId').val();
         $.ajax({
-            url: '/api/poets/' + poetId,
+            url: 'http://localhost:9001/ssm/api/poets/' + poetId,
             type: 'DELETE',
             success: function(response) {
                 if (response === 1) {
@@ -92,8 +117,10 @@
      */
     function getPoetById() {
         // 发送AJAX GET请求到服务器，URL根据输入的ID动态生成
+        var poetId = $('#getId').val();
+        console.log('Request URL:', '/api/poets/' + poetId); // 打印请求的URL
         $.ajax({
-            url: '/api/poets/' + $('#getId').val(), // 修改URL
+            url: 'http://localhost:9001/ssm/api/poets/' + $('#getId').val(), // 修改URL
             type: 'GET', // 修改请求类型
             success: function(response) {
                 // 请求成功后，将诗人信息添加到表格中
@@ -104,7 +131,6 @@
                 alert('获取诗人时发生错误: ' + error.responseText);
             }
         });
-
 
 
 

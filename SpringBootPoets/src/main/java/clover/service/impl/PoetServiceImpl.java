@@ -11,7 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+// 服务层实现类，标记为Spring的服务组件
 @Service
+// 标记为事务性操作，确保方法中的数据库操作在一个事务内完成
 @Transactional
 public class PoetServiceImpl implements PoetService {
 

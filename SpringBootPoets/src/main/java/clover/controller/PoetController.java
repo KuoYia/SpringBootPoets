@@ -12,6 +12,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/*@RestController：这是一个组合注解，
+它包含了@Controller和@ResponseBody两个注解的功能。
+@Controller注解用于标记该类是一个控制器，负责处理客户端的请求。
+@ResponseBody注解表示该控制器方法的返回值将直接写入HTTP响应体中，
+而不是解析为视图。通常用于返回JSON或XML格式的数据。*/
+/**
+ * 诗人控制器，处理与诗人相关的API请求。
+ * 使用@RestController注解标记该类为一个RESTful风格的控制器。
+ * 使用@RequestMapping注解指定基础路径为"/api/poets"。
+ */
 @RestController
 @RequestMapping("/api/poets")
 public class PoetController {
@@ -70,7 +80,22 @@ public class PoetController {
     }
 
      // 更新诗人信息
-     @PutMapping("/{id}")
+
+     @PutMapping
+     public ResponseEntity<Poet> updatePoet(@RequestBody Poet poet) {
+         try {
+             int result = poetService.update(poet);
+             if (result > 0) {
+                 return ResponseEntity.ok(poet); // 成功返回更新后的诗人对象
+             } else {
+                 return ResponseEntity.badRequest().body(null); // 失败返回null
+             }
+         } catch (Exception e) {
+             logger.error("Error updating poet", e); // 打印异常信息和堆栈跟踪
+             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null); // 异常返回null
+         }
+     }
+/*     @PutMapping("/{id}")
      public ResponseEntity<Integer> updatePoet(@PathVariable int id, @RequestBody Poet poet) {
         try {
             poet.setId(id); // 确保更新的是正确的诗人信息
@@ -83,7 +108,7 @@ public class PoetController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(0); // 异常返回0
         }
-    }
+    }*/
 
         // 批量插入诗人
         // 批量插入诗人
