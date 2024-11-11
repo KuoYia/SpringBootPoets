@@ -1,4 +1,4 @@
 spring:
   web:
     resources:
-      static-locations: classpath:/images
+      static-locations: classpath:/static

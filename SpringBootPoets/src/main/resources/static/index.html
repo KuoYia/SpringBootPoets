@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>诗人管理</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="index.css" rel="stylesheet">
+    <script src="index.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <!-- 页面内容和表单代码 -->
+    <!-- 省略其他内容，与之前相同 -->
+    <h1 class="text-center">诗人管理</h1>
+
+    <!-- 添加诗人表单 -->
+    <h2 class="text-center">添加诗人</h2>
+    <form id="addPoetForm" class="row g-3">
+        <div class="col-md-6">
+            <label for="name" class="form-label">姓名</label>
+            <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="col-md-6">
+            <label for="dynasty" class="form-label">朝代</label>
+            <input type="text" class="form-control" id="dynasty" required>
+        </div>
+        <div class="col-12">
+            <label for="biography" class="form-label">简介</label>
+            <textarea class="form-control" id="biography" rows="3" required></textarea>
+        </div>
+        <div class="col-md-6">
+            <label for="birthDate" class="form-label">生年</label>
+            <input type="date" class="form-control" id="birthDate">
+        </div>
+        <div class="col-md-6">
+            <label for="deathDate" class="form-label">卒年</label>
+            <input type="date" class="form-control" id="deathDate">
+        </div>
+        <div class="col-12">
+            <button type="button" class="btn btn-primary" onclick="addPoet()">添加诗人</button>
+        </div>
+    </form>
+
+    <!-- 更新诗人表单 -->
+    <h2 class="text-center">更新诗人信息</h2>
+    <form id="updatePoetForm" class="row g-3">
+        <div class="col-md-6">
+            <label for="updateId" class="form-label">诗人ID</label>
+            <input type="text" class="form-control" id="updateId" required>
+        </div>
+        <div class="col-md-6">
+            <label for="updateName" class="form-label">姓名</label>
+            <input type="text" class="form-control" id="updateName" required>
+        </div>
+        <div class="col-md-6">
+            <label for="updateDynasty" class="form-label">朝代</label>
+            <input type="text" class="form-control" id="updateDynasty" required>
+        </div>
+        <div class="col-12">
+            <label for="updateBiography" class="form-label">简介</label>
+            <textarea class="form-control" id="updateBiography" rows="3" required></textarea>
+        </div>
+        <div class="col-md-6">
+            <label for="updateBirthDate" class="form-label">生年</label>
+            <input type="date" class="form-control" id="updateBirthDate">
+        </div>
+        <div class="col-md-6">
+            <label for="updateDeathDate" class="form-label">卒年</label>
+            <input type="date" class="form-control" id="updateDeathDate">
+        </div>
+        <div class="col-12">
+            <button type="button" class="btn btn-primary" onclick="updatePoet()">更新诗人信息</button>
+        </div>
+    </form>
+
+    <!-- 删除诗人 -->
+    <h2 class="text-center">删除诗人</h2>
+    <form id="deletePoetForm" class="row g-3">
+        <div class="col-12">
+            <label for="deleteId" class="form-label">诗人ID</label>
+            <input type="text" class="form-control" id="deleteId" required>
+        </div>
+        <div class="col-12">
+            <button type="button" class="btn btn-danger" onclick="deletePoet()">删除诗人</button>
+        </div>
+    </form>
+
+    <!-- 根据ID查询诗人 -->
+    <h2 class="text-center">查询诗人</h2>
+    <form id="getPoetByIdForm" class="row g-3">
+        <div class="col-12">
+            <label for="getId" class="form-label">诗人ID</label>
+            <input type="text" class="form-control" id="getId" required>
+        </div>
+        <div class="col-12">
+            <button type="button" class="btn btn-secondary" onclick="getPoetById()">查询诗人</button>
+        </div>
+    </form>
+
+    <!-- 显示诗人信息 -->
+    <h2 class="text-center">诗人信息</h2>
+    <table id="poetTable" class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">姓名</th>
+            <th scope="col">朝代</th>
+            <th scope="col">简介</th>
+            <!--<th scope="col">生年</th>
+            <th scope="col">卒年</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 诗人信息将通过JavaScript动态插入 -->
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

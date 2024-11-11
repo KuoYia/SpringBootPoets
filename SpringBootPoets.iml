@@ -29,8 +29,6 @@
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:3.3.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:3.3.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-logging:3.3.3" level="project" />
-    <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.5.7" level="project" />
-    <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.5.7" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-to-slf4j:2.23.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.23.1" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jul-to-slf4j:2.0.16" level="project" />
@@ -58,7 +56,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:6.1.12" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:druid-spring-boot-3-starter:1.2.23" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:druid:1.2.23" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:2.0.16" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:3.3.3" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:3.0.3" level="project" />
@@ -77,5 +74,8 @@
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper-spring-boot-autoconfigure:2.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:6.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:4.7" level="project" />
+    <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.2.3" level="project" />
+    <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.5.7" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
   </component>
 </module>
