@@ -1,0 +1,8 @@
+mybatis:
+  configuration:
+    auto-mapping-behavior: full
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  #type-aliases-package: clover.dao
+  #mapper-locations: classpath:/mappers/*.xml
+  #上面两行在用mapper.xml时需要用到

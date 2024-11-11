@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://localhost:3306/LearnPoem?serverTimezone=Asia/Shanghai
+      username: root
+      password: 666666
+      driver-class-name: com.mysql.cj.jdbc.Driver

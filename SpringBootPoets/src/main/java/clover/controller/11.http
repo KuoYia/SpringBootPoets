@@ -1,0 +1,38 @@
+GET http://localhost:80/api/item?id=99
+Accept: application/json
+
+###
+GET http://localhost:80/api/item?id=99
+Accept: application/json
+
+###
+
+GET  http://localhost:8080/api/poets/queryPoet/1
+Accept: application/json
+
+###
+# @no-cookie-jar
+GET http://localhost:8080/api/poets/1
+
+###
+
+# curl -X POST http://localhost:8080/api/poets/add -H "Content-Type: application/json" -d '{
+#  "name": "李白",
+#  "birthDate": "701-02-08",
+#  "deathDate": "762-11-30",
+#  "dynasty": "唐",
+#  "biography": "李白，字太白，号青莲居士，又号‘谪仙人’..."
+#}'
+POST http://localhost:8080/api/poets/add
+Content-Type: application/json
+
+{
+  "name": "李白2",
+  "birthDate": "701-02-08",
+  "deathDate": "762-11-30",
+  "dynasty": "唐",
+  "biography": "李白，字太白，号青莲居士，又号‘谪仙人’..."
+}
+
+###
+
