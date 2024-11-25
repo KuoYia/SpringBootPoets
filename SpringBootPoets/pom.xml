@@ -27,6 +27,34 @@
             <!--此处不需要指定版本，继承父类版本-->
         </dependency>
 
+
+
+        <!-- Spring Boot Starter Data JPA -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
+
+
+<!--        &lt;!&ndash; Lombok for Getters and Setters &ndash;&gt;
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>-->
+
+
+
+
+
         <!-- druid启动器的依赖 -->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -53,6 +81,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

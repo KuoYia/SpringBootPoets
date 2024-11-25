@@ -81,20 +81,32 @@ public class PoetController {
 
      // 更新诗人信息
 
-     @PutMapping
-     public ResponseEntity<Poet> updatePoet(@RequestBody Poet poet) {
-         try {
-             int result = poetService.update(poet);
-             if (result > 0) {
-                 return ResponseEntity.ok(poet); // 成功返回更新后的诗人对象
-             } else {
-                 return ResponseEntity.badRequest().body(null); // 失败返回null
-             }
-         } catch (Exception e) {
-             logger.error("Error updating poet", e); // 打印异常信息和堆栈跟踪
-             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null); // 异常返回null
-         }
-     }
+/**
+           * 更新诗人信息。
+           *
+           * @param poet 包含更新信息的诗人对象
+           * @return ResponseEntity 包含更新后的诗人对象或错误信息
+           */
+          @PutMapping
+          public ResponseEntity<Poet> updatePoet(@RequestBody Poet poet) {
+              try {
+                  // 调用服务层方法更新诗人信息
+                  int result = poetService.update(poet);
+                  if (result > 0) {
+                      // 如果更新成功，返回更新后的诗人对象
+                      return ResponseEntity.ok(poet);
+                  } else {
+                      // 如果更新失败，返回400 Bad Request状态码
+                      return ResponseEntity.badRequest().body(null);
+                  }
+              } catch (Exception e) {
+                  // 打印异常信息和堆栈跟踪
+                  logger.error("Error updating poet", e);
+                  // 如果发生异常，返回500 Internal Server Error状态码
+                  return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+              }
+          }
+
 /*     @PutMapping("/{id}")
      public ResponseEntity<Integer> updatePoet(@PathVariable int id, @RequestBody Poet poet) {
         try {
