@@ -4,6 +4,8 @@ import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.ParseException;
@@ -113,14 +115,13 @@ public class BeanUtil {
      * @param name 属性名
      * @param value 属性值
      */
-    public static void setProperty(Object bean, String name, Object value) {
+    public static void setProperty(Object bean, String propertyName, String propertyValue) {
         try {
-            Method writeMethod = findWriteMethod(bean.getClass(), name);
-            if (writeMethod != null) {
-                writeMethod.invoke(bean, value);
-            }
-        } catch (Exception e) {
-            throw new RuntimeException("Error setting property", e);
+            Field field = bean.getClass().getDeclaredField(propertyName);
+            field.setAccessible(true);
+            field.set(bean, propertyValue);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
         }
     }
 

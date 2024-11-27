@@ -1,3 +1,4 @@
+/*
 package clover.controller;
 import clover.pojo.Poet;
 import clover.service.PoetService;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+*/
 /*
 @RestController
 @RequestMapping("/poets2")
@@ -19,7 +21,8 @@ public class TestController {
         }
     }
 
-*/
+*//*
+
 
 
 @RestController
@@ -40,3 +43,4 @@ public class TestController {
     }
 }
 
+*/

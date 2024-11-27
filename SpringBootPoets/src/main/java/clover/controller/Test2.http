@@ -1,0 +1,28 @@
+# curl -X POST http://localhost:9001/ssm/poets2/set -H "Content-Type: application/x-www-form-urlencoded" -d "propertyName=name&propertyValue=李白"
+POST http://localhost:9001/ssm/poets2/set
+Content-Type: application/x-www-form-urlencoded
+
+propertyName=name&propertyValue=李白
+
+###
+
+# curl -X POST http://localhost:9001/ssm/poets2/copy -H "Content-Type: application/x-www-form-urlencoded" -d "name=李白&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介"
+POST http://localhost:9001/ssm/poets2/copy
+Content-Type: application/x-www-form-urlencoded
+
+id=55&name=李白&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介
+
+###
+
+# curl -X POST http://localhost:9001/ssm/poets2/populate -H "Content-Type: application/x-www-form-urlencoded" -d "name=李白&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介"
+POST http://localhost:9001/ssm/poets2/populate
+Content-Type: application/x-www-form-urlencoded
+
+name=李白&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介
+
+###
+
+
+
+
+

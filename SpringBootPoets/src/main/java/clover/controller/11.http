@@ -58,4 +58,7 @@ name=李白2&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=
 POST http://localhost:9001/ssm/poets2/create
 Content-Type: application/x-www-form-urlencoded
 
-name=李白44&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介
+name=李白244&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介
+
+
+

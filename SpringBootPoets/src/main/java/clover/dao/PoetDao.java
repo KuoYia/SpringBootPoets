@@ -24,9 +24,23 @@ public interface PoetDao {
 
 
     //更改
-    @Update("UPDATE poets SET name = #{name}, birthDate = #{birthDate}, " +
-            "deathDate = #{deathDate}, dynasty = #{dynasty}, biography = #{biography} WHERE id = #{id}")
+ /*   @Update("UPDATE poets SET name = #{name}, birthDate = #{birthDate}, " +
+            "deathDate = #{deathDate}, dynasty = #{dynasty}, biography = #{biography} WHERE id = #{id}")*/
+    @Update({
+            "<script>",
+            "UPDATE poets",
+            "<set>",
+            "<if test='name != null'>name = #{name},</if>",
+            "<if test='birthDate != null'>birthDate = #{birthDate},</if>",
+            "<if test='deathDate != null'>deathDate = #{deathDate},</if>",
+            "<if test='dynasty != null'>dynasty = #{dynasty},</if>",
+            "<if test='biography != null'>biography = #{biography},</if>",
+            "</set>",
+            "WHERE id = #{id}",
+            "</script>"
+    })
     int update(Poet poet);
+
 
     //删除诗人
     @Delete("DELETE FROM poets WHERE id = #{id}")
@@ -71,10 +85,25 @@ public interface PoetDao {
             "AND biography LIKE CONCAT('%', #{biography}, '%') " +
             "</if>" +
             "</script>")
+
     List<Poet> findByMultipleConditions(@Param("name") String name,
                                         @Param("dynasty") String dynasty,
                                         @Param("biography") String biography);
 
+/*    @Select("<script>" +
+            "SELECT * FROM poets " +
+            "<where>"+
+            "<if test='name != null and name.trim() != \"\"'>" +
+            "AND name LIKE CONCAT('%', #{name}, '%') " +
+            "</if>" +
+            "<if test='dynasty != null and dynasty.trim() != \"\"'>" +
+            "AND dynasty LIKE CONCAT('%', #{dynasty}, '%') " +
+            "</if>" +
+            "<if test='biography != null and biography.trim() != \"\"'>" +
+            "AND biography LIKE CONCAT('%', #{biography}, '%') " +
+            "</if>" +
+            "</where>"+
+            "</script>")*/
     /*// 根据诗人ID查询其所有诗句
     @Select("SELECT id, title, content, translation, authorId, poemTypeId FROM poems WHERE authorId = #{poetId}")
     List<Poem> selectPoemsByPoetId(@Param("poetId") int poetId);*/
