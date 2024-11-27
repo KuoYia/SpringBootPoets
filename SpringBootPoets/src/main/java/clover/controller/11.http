@@ -35,4 +35,27 @@ Content-Type: application/json
 }
 
 ###
+# curl -X POST http://localhost:9001/ssm/poets2/create -H "Content-Type: application/x-www-form-urlencoded" -d "id=1&name=李白&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介"
+POST http://localhost:9001/ssm/poets2/create
+Content-Type: application/x-www-form-urlencoded
 
+id=1&name=李白&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介
+
+###
+
+
+# curl -X POST http://localhost:9001/ssm/poets2/create -H "Content-Type: application/x-www-form-urlencoded" -d "id=1&name=李白&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介"
+POST http://localhost:9001/ssm/poets2/create
+Content-Type: application/x-www-form-urlencoded
+
+name=李白2&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介
+
+###
+
+
+###
+# curl -X POST http://localhost:9001/ssm/poets2/create -H "Content-Type: application/x-www-form-urlencoded" -d "id=1&name=李白&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介"
+POST http://localhost:9001/ssm/poets2/create
+Content-Type: application/x-www-form-urlencoded
+
+name=李白44&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介

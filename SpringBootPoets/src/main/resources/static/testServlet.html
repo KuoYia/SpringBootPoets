@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Poet Management</title>
+  <script>
+    async function addPoet() {
+      const poetData = {
+        id: document.getElementById('id').value,
+        name: document.getElementById('name').value,
+        birthDate: document.getElementById('birthDate').value,
+        deathDate: document.getElementById('deathDate').value,
+        dynasty: document.getElementById('dynasty').value,
+        biography: document.getElementById('biography').value
+      };
+
+      try {
+        const response = await fetch('/test', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(poetData)
+        });
+
+        if (response.ok) {
+          const poet = await response.json();
+          alert('Poet added successfully: ' + JSON.stringify(poet));
+        } else {
+          alert('Error adding poet: ' + response.statusText);
+        }
+      } catch (error) {
+        alert('Error adding poet: ' + error.message);
+      }
+    }
+
+    async function getPoetById() {
+      const poetId = document.getElementById('poetId').value;
+      try {
+        const response = await fetch(`/api/poets/${poetId}`);
+
+        if (response.ok) {
+          const poet = await response.json();
+          alert('Poet retrieved successfully: ' + JSON.stringify(poet));
+        } else {
+          alert('Error retrieving poet: ' + response.statusText);
+        }
+      } catch (error) {
+        alert('Error retrieving poet: ' + error.message);
+      }
+    }
+  </script>
+</head>
+<body>
+<h1>Poet Management</h1>
+
+<h2>Add Poet</h2>
+<form id="addPoetForm">
+  ID: <input type="number" id="id"><br>
+  Name: <input type="text" id="name"><br>
+  Birth Date (yyyy-MM-dd): <input type="date" id="birthDate"><br>
+  Death Date (yyyy-MM-dd): <input type="date" id="deathDate"><br>
+  Dynasty: <input type="text" id="dynasty"><br>
+  Biography: <textarea id="biography"></textarea><br>
+  <button type="button" onclick="addPoet()">Add Poet</button>
+</form>
+
+<h2>Get Poet By ID</h2>
+<form id="getPoetByIdForm">
+  Poet ID: <input type="number" id="poetId">
+  <button type="button" onclick="getPoetById()">Get Poet</button>
+</form>
+</body>
+</html>
