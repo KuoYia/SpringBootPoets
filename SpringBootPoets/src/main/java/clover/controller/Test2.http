@@ -13,15 +13,24 @@ Content-Type: application/x-www-form-urlencoded
 id=55&name=李白&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介
 
 ###
+# 使用curl命令向本地服务器的特定端点发送POST请求，用于添加一个新的诗人信息。
+# -X POST 指定请求方法为POST
+# http://localhost:9001/ssm/poets2/populate 是请求的目标URL
+# -H "Content-Type: application/x-www-form-urlencoded" 设置请求头，指定内容类型为表单数据
+# -d 后面跟随的是要发送的数据，包括诗人的姓名、出生日期、逝世日期、朝代和简介
 
-# curl -X POST http://localhost:9001/ssm/poets2/populate -H "Content-Type: application/x-www-form-urlencoded" -d "name=李白&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介"
-POST http://localhost:9001/ssm/poets2/populate
-Content-Type: application/x-www-form-urlencoded
+POST http://localhost:9001/ssm/poets2/populate  # 定义请求的URL
+Content-Type: application/x-www-form-urlencoded  # 设置请求的内容类型
 
-name=李白&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介
+name=李白&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=浪漫主义诗人
 
 ###
 
+
+POST http://localhost:9001/ssm/poets2/create
+Content-Type: application/x-www-form-urlencoded
+
+id=100&name=李白2&birthDate=2024-11-27&deathDate=2024-12-01&dynasty=唐朝&biography=诗人简介
 
 
 

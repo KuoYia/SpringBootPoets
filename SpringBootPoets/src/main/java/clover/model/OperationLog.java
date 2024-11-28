@@ -10,13 +10,12 @@ import jakarta.persistence.Id;
 
 
 
-
-@Entity
+@Entity // 标识这是一个JPA实体类
 public class OperationLog {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Id // 标识这是主键字段
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 主键生成策略为自增
+    private Long id; // 定义一个长整型的id字段，作为主键
 
 
 

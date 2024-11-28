@@ -1,5 +1,6 @@
 package clover.service.impl;
 
+import clover.TransactionalRead;
 import clover.dao.PoetDao;
 import clover.pojo.Poem;
 import clover.pojo.Poet;
@@ -26,7 +27,8 @@ public class PoetServiceImpl implements PoetService {
     }
 
     //插入诗人
-    @Override
+   /* @Override
+    @TransactionalRead
     public int insert(Poet poet) {
         // 该方法用于将一个新的Poet对象插入到数据库中，并返回插入的Poet对象
         // 检查数据库中是否已存在同名的诗人
@@ -43,7 +45,28 @@ public class PoetServiceImpl implements PoetService {
 
         // 插入操作完成后，返回传入的poet对象
         return 1;
+    }*/
+
+    @Override
+    @TransactionalRead
+    public int insert(Poet poet) {
+        //为了验证回滚,先添加一个诗人检查日志记录
+        poetDao.insert(poet);
+        // 检查数据库中是否已存在同名的诗人
+        List<Poet> existingPoets = poetDao.findByMultipleConditions(poet.getName(), null, null);
+
+        // 如果搜索结果不为空，说明存在至少一个同名的诗人
+        if (!existingPoets.isEmpty()) {
+            // 如果存在同名诗人，则抛出IllegalArgumentException异常，表示不能插入同名诗人
+            throw new IllegalArgumentException("A poet with the same name already exists.");
+        }
+        // 如果没有同名诗人，调用poetDao的insert方法将诗人对象插入到数据库中
+        poetDao.insert(poet);
+
+        // 插入操作完成后，返回传入的poet对象
+        return 1;
     }
+
     //更改诗人信息
     @Override
     public int update(Poet poet) {

@@ -5,9 +5,7 @@ import clover.util.BeanUtil;
 import org.springframework.web.bind.annotation.*;
 
 import java.beans.IntrospectionException;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.text.SimpleDateFormat;
 import java.util.Map;
 
 @RestController
@@ -24,7 +22,7 @@ public class Test2 {
     @PostMapping("/create")
     public Poet createPoet(@RequestParam Map<String, String> params) {
         Poet poet = BeanUtil.convert(Poet.class, params);
-        poetService.insert(poet); // 假设PoetService有一个insert方法
+        //poetService.insert(poet);
         return poet;
     }
 
